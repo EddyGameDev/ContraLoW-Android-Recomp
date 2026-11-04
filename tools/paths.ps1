@@ -34,3 +34,21 @@ function Find-Python {
     }
     return $null
 }
+
+# The NDK's clang toolchain dir (bin\clang.exe + sysroot live here).
+function Find-Ndk {
+    foreach ($sdk in @((Find-Sdk), $env:ANDROID_HOME, $env:ANDROID_SDK_ROOT, (Join-Path $env:LOCALAPPDATA "Android\Sdk"))) {
+        if (-not $sdk) { continue }
+        $tc = Join-Path $sdk "ndk\$NdkVersion\toolchains\llvm\prebuilt\windows-x86_64"
+        if (Test-Path (Join-Path $tc "bin\clang.exe")) { return $tc }
+    }
+    return $null
+}
+
+function Find-Adb {
+    $sdk = Find-Sdk
+    if ($sdk -and (Test-Path (Join-Path $sdk "platform-tools\adb.exe"))) { return Join-Path $sdk "platform-tools\adb.exe" }
+    $onPath = Get-Command adb -ErrorAction SilentlyContinue
+    if ($onPath) { return $onPath.Source }
+    return "adb"
+}
