@@ -57,5 +57,10 @@ if ($LASTEXITCODE -ne 0) { Fail-WithLog "configure" $cfgLog }
 & cmake --build $out --target psxrecomp-game *> $buildLog
 if ($LASTEXITCODE -ne 0) { Fail-WithLog "build" $buildLog }
 if (-not (Test-Path $exe)) { Fail-WithLog "output missing" $buildLog }
+# Bundle the MinGW runtime DLLs the exe imports (libc++, libunwind) next to it,
+# so it runs without llvm-mingw's bin on PATH (cf. the framework's bundle_mingw_dlls.sh).
+foreach ($dll in "libc++.dll", "libunwind.dll") {
+    Copy-Item (Join-Path $LlvmMingw "bin\$dll") $out -Force
+}
 Write-Host "OK   recompiler: $exe"
 exit 0
