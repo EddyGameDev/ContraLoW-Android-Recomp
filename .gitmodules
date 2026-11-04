@@ -1,0 +1,4 @@
+[submodule "psxrecomp"]
+	path = psxrecomp
+	url = https://github.com/dguillot-gh/psxrecomp-android.git
+	branch = android

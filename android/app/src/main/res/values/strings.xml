@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Contra: Legacy of War</string>
+    <!-- Read by the shared psxrecomp Android code (psxrecomp/runtime/android). -->
+    <string name="psx_game_title">Contra: Legacy of War</string>
+    <!-- game.toml [game] id: names the overlay cache folder. -->
+    <string name="psx_game_id">SLUS-00288</string>
+</resources>

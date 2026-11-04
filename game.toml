@@ -1,0 +1,54 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Contra - Legacy of War"
+id = "SLUS-00288"
+players = 1
+exe = "disc/SLUS_002.88"
+disc = "disc/Contra - Legacy of War (USA).cue"
+load_address = "0x80010000"
+entry_pc = "0x800513E4"
+text_size = "0x00094800"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Contra - Legacy of War (USA) (Track 01).bin"
+cue_name = "Contra - Legacy of War (USA).cue"
+boot_exe = "SLUS_002.88"
+known_sizes = [74377296]
+known_md5 = [
+  "15a2a2759e8e2db4d85022a2c7aebe1e",
+]
+known_sha1 = [
+  "71469e048f0f6f0680356652ea8ec5bf4ce9cc7a",
+]
+known_crc32 = [
+  "42e25a1e",
+]
+
+[recompiler]
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+window_title = "Contra - Legacy of War Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 12
+required_disc_fp = "31378eb9797de834bc3bce6e1b00b2f7a73754b0faf067afc9784da64274089b"

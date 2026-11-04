@@ -1,0 +1,46 @@
+{
+  "format_version": 1,
+  "game": {
+    "name": "Contra - Legacy of War",
+    "id": "SLUS-00288",
+    "boot_exe": "SLUS_002.88"
+  },
+  "marketing": {
+    "description": "",
+    "publisher": "",
+    "year": "",
+    "region": "",
+    "players": 1
+  },
+  "rom_identity": {
+    "cue_name": "Contra - Legacy of War (USA).cue",
+    "bin_name": "Contra - Legacy of War (USA) (Track 01).bin",
+    "track_counts": [
+      12
+    ],
+    "require_cue": true,
+    "data_track": {
+      "size": 74377296,
+      "md5": "15a2a2759e8e2db4d85022a2c7aebe1e",
+      "sha1": "71469e048f0f6f0680356652ea8ec5bf4ce9cc7a",
+      "crc32": "42e25a1e"
+    },
+    "disc_fp": "31378eb9797de834bc3bce6e1b00b2f7a73754b0faf067afc9784da64274089b"
+  },
+  "exe": {
+    "load_address": "0x80010000",
+    "entry_pc": "0x800513E4",
+    "text_size": "0x00094800",
+    "stack_base": "0x801FFFF0"
+  },
+  "seeds": {
+    "count": 811,
+    "source": "boot_exe_jal"
+  },
+  "warnings": [],
+  "notes": [
+    "entry_pc/load_address/text_size/stack_base taken from PS-X EXE header.",
+    "seeds are first-pass boot-EXE JAL targets (+ entry); expect to grow as overlays / runtime paths are discovered.",
+    "required_disc_fp is psxrecomp-toc-v1 (matches runtime DiscIdentity)."
+  ]
+}
