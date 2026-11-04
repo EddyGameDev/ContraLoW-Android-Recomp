@@ -32,6 +32,11 @@ Put your legally obtained dump (`.cue` + all track `.bin` files) at
 
 ## Build (Windows host)
 
+**Clone / keep this repository at a short path** (for example `C:\psx\ContraLoWRecomp`).
+The engine's source tree contains file paths that overflow Windows' 260-character
+`MAX_PATH` limit inside a deeply nested folder — the recompiler build fails with
+`Filename longer than 260 characters` if the checkout sits too deep.
+
 Requires PowerShell 7 (`winget install Microsoft.PowerShell`), Python 3, Java 17+,
 and an Android SDK with **NDK 28.2.13676358** + **CMake 3.22.1** (`ANDROID_HOME`
 set). The first recompiler build downloads a portable llvm-mingw (~190 MB) into

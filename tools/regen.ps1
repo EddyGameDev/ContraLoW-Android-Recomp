@@ -38,7 +38,7 @@ Push-Location $RepoRoot
 $code = $LASTEXITCODE
 Pop-Location
 if ($code -eq 0) {
-    Set-Content -Path $marker -Value (Get-Date -o) -Encoding utf8NoBOM
+    Set-Content -Path $marker -Value (Get-Date -Format o) -Encoding utf8NoBOM
     $wrote = Select-String (Join-Path $RepoRoot "regen.log") -Pattern 'Wrote (\d+) shards .* for (\S+)' | Select-Object -First 1
     if ($wrote) { Write-Host "REGEN: done - $($wrote.Matches[0].Value)" } else { Write-Host "REGEN: done" }
 } else {
