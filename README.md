@@ -87,6 +87,18 @@ The APK lands in `apk\`. Install it (`adb install <apk>`), copy your `.cue` +
       dispatched with a garbage fill length, clobbered the kernel dispatch
       stubs): fixed by the runtime's `a0_memset_len` shim
       (`[runtime] a0_memset_len_sites` / `a0_memset_len`); Mission 1 playable
+- [x] 16:9 widescreen (present-time stretch, software renderer — the game
+      itself stays 4:3)
+- [x] Playtest aid: `[runtime] cheat_freeze_addrs/values` (GameShark-style
+      per-frame constant writes) — currently armed with infinite
+      lives/continues + invincibility; delete those lines to play fair
+
+### Known issues
+
+- The in-game menu's "GPU (experimental)" renderer draws 3D gameplay with
+  broken colors on Adreno (the GL framebuffer diverges from CPU VRAM —
+  ~10k words, texture/CLUT staging coherency; FMV and 2D screens are fine).
+  Use the software renderer (default) — it holds 60 FPS.
 
 ## Credits
 

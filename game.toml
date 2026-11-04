@@ -47,6 +47,12 @@ overlay_cache = true
 # dispatch return addresses ($ra) of the two jal sites.
 a0_memset_len_sites = [0x800FE590, 0x800FFD18]
 a0_memset_len       = 0x3C
+# DEV/PLAYTEST AID (temporary — delete these two lines to disable): per-frame
+# GameShark-style freezes from the published SLUS-00288 codes. Infinite lives
+# P1/P2 (0x800DC784/0x800DC7AC = 9), infinite continues (0x800DEC92 = 9),
+# P1/P2 invincible (0x8008C9D4/0x8008CA9C = 0x60 — the flag the game checks).
+cheat_freeze_addrs  = [0x800DC784, 0x800DC7AC, 0x800DEC92, 0x8008C9D4, 0x8008CA9C]
+cheat_freeze_values = [0x0009,     0x0009,     0x0009,     0x0060,     0x0060]
 
 [video]
 renderer = "opengl"
