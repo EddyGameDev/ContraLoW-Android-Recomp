@@ -21,6 +21,15 @@ strict = true
 [runtime]
 video_renderer = "software"
 overlay_cache = true
+# OVER8 select-player compat: both 2-arg memset(dst,0x3C) wrappers dispatch
+# A0:0x2B with $a2 never set (latent game bug — real HW ran on a register
+# leftover, and under the recompiler it diverges, wrapping the fill over 2MB
+# of RAM and clobbering the kernel dispatch stubs). Force the length the
+# layout proves: each fill region ends exactly at the next structure
+# (0x80100E0C+0x3C=0x80100E48, 0x80100E6C+0x3C=0x80100EA8). Values are the
+# dispatch return addresses ($ra) of the two jal sites.
+a0_memset_len_sites = [0x800FE590, 0x800FFD18]
+a0_memset_len       = 0x3C
 
 [controller]
 default_mode = "digital"

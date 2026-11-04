@@ -82,8 +82,11 @@ The APK lands in `apk\`. Install it (`adb install <apk>`), copy your `.cue` +
 - [x] Recompiler built (llvm-mingw 20260922, codegen hash `521a0d1e`)
 - [x] Game code generated from the disc: 35 shards, 1,338,523 lines, 2,317-entry dispatch table
 - [x] APK builds (arm64, 10.1 MB — runtime + OpenBIOS only, no disc data)
-- [ ] Boots on device
-- [ ] Gameplay verified
+- [x] Boots on device (Pixel-class arm64 phone, launcher start menu → Play)
+- [x] Gameplay verified — incl. the OVER8 select-player freeze (2-arg `memset`
+      dispatched with a garbage fill length, clobbered the kernel dispatch
+      stubs): fixed by the runtime's `a0_memset_len` shim
+      (`[runtime] a0_memset_len_sites` / `a0_memset_len`); Mission 1 playable
 
 ## Credits
 
