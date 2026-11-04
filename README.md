@@ -79,9 +79,9 @@ The APK lands in `apk\`. Install it (`adb install <apk>`), copy your `.cue` +
 
 - [x] Disc probed: SLUS-00288, boot EXE + 811 first-pass seeds
 - [x] Android app generated from the psx-android template (launcher start menu)
-- [ ] Recompiler built
-- [ ] Game code generated from the disc
-- [ ] APK builds
+- [x] Recompiler built (llvm-mingw 20260922, codegen hash `521a0d1e`)
+- [x] Game code generated from the disc: 35 shards, 1,338,523 lines, 2,317-entry dispatch table
+- [x] APK builds (arm64, 10.1 MB — runtime + OpenBIOS only, no disc data)
 - [ ] Boots on device
 - [ ] Gameplay verified
 
