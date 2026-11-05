@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android Game Mode API (GameManager): lets the system apply the
+     performance/battery game modes to this app (cmd game mode performance …,
+     Settings → Game Dashboard/Game Booster). On devices whose power HAL
+     honors game modes (Samsung HYPER-HAL) the performance mode holds CPU
+     clocks up while the game is foregrounded — without it, phones that run
+     hint-only CPU governors (energy_step) idle the emulator's core at
+     ~533 MHz and the frame rate collapses when nothing is being touched. -->
+<game-mode-config xmlns:android="http://schemas.android.com/apk/res/android"
+    android:supportsPerformanceGameMode="true"
+    android:supportsBatteryGameMode="true" />
